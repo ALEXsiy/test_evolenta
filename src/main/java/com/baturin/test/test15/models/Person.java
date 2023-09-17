@@ -1,15 +1,17 @@
-package com.baturin.test.test15;
+package com.baturin.test.test15.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.GenerationType;
+
 import java.time.LocalDate;
 
 @Entity
 public class Person {
-    @Id
-    @GeneratedValue
+  @Id
+  @GeneratedValue
     private int id;
     private String firstname;
     private String surname;

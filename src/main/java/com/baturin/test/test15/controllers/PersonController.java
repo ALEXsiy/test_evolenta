@@ -1,7 +1,9 @@
-package com.baturin.test.test15;
+package com.baturin.test.test15.controllers;
 
 import java.lang.*;
 
+import com.baturin.test.test15.repository.PersonRepository;
+import com.baturin.test.test15.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,8 +35,12 @@ public class PersonController {
 
     @PutMapping("/persons/{id}")
     public ResponseEntity<Person> updatePerson(@PathVariable int id, @RequestBody Person person) {
-        HttpStatus status = repository.existsById(id) ? HttpStatus.OK : HttpStatus.CREATED;
-        return new ResponseEntity(repository.save(person), status);
+        if(repository.existsById(id)) {
+            person.setId(id); // сохраняем существующий id
+            return new ResponseEntity(repository.save(person), HttpStatus.OK);
+        } else {
+            return new ResponseEntity(repository.save(person), HttpStatus.CREATED);
+        }
     }
 
     @DeleteMapping("/persons/{id}")
