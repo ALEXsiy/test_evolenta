@@ -1,4 +1,4 @@
-package com.baturin.test.test15.models;
+package com.baturin.test.test16.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
@@ -6,7 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity

@@ -1,7 +1,6 @@
-package com.baturin.test.test15.repository;
+package com.baturin.test.test16.repository;
 
-import com.baturin.test.test15.models.Message;
-import com.baturin.test.test15.models.Person;
+import com.baturin.test.test16.models.Message;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

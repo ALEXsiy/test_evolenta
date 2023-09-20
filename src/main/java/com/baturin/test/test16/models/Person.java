@@ -1,4 +1,4 @@
-package com.baturin.test.test15.models;
+package com.baturin.test.test16.models;
 
 
 import jakarta.persistence.*;
