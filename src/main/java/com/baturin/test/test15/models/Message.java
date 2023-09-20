@@ -1,10 +1,13 @@
 package com.baturin.test.test15.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 public class Message {
@@ -14,17 +17,19 @@ public class Message {
     private int id;
     private String title;
     private String text;
-    private LocalDate time;
-
+    private LocalDateTime time;
+    @ManyToOne
+    @JsonIgnore
+    private Person person;
     //конструкторы
     public Message() {
     }
-    public Message( String title, String text, LocalDate time) {
+    public Message( String title, String text, LocalDateTime time) {
         this.title=title;
         this.text=text;
         this.time=time;
     }
-    public Message(int id, String title, String text, LocalDate time) {
+    public Message(int id, String title, String text, LocalDateTime time) {
         this.id = id;
         this.title=title;
         this.text=text;
@@ -44,7 +49,7 @@ public class Message {
         return title;
     }
 
-    public LocalDate getTime() {
+    public LocalDateTime getTime() {
         return time;
     }
 
@@ -60,7 +65,15 @@ public class Message {
         this.title = title;
     }
 
-    public void setTime(LocalDate time) {
+    public void setTime(LocalDateTime time) {
         this.time = time;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
 }
